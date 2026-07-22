@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mxmoe-adapt"
+version = "0.1.0"
+description = "Route-aware MoE tuning and dispatch for MetaX C500 and MXMACA"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "李勇志"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/chionglee14/mxmoe-adapt"
+Issues = "https://github.com/chionglee14/mxmoe-adapt/issues"
+
+[project.optional-dependencies]
+c500 = ["torch", "triton", "flag-gems"]
+dev = ["pytest>=7", "ruff>=0.6"]
+
+[project.scripts]
+mxmoe-env = "mxmoe_adapt.environment:main"
+mxmoe-search-space = "mxmoe_adapt.search_space:main"
+mxmoe-trace = "mxmoe_adapt.trace:main"
+mxmoe-report = "mxmoe_adapt.report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

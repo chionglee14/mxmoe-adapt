@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "measured",
+  "shape": {
+    "tokens": 4,
+    "experts": 8,
+    "hidden_size": 4096,
+    "intermediate_size": 14336,
+    "top_k": 2,
+    "dtype": "fp16"
+  },
+  "candidate_count": 5,
+  "ranking_metric": "paired baseline-to-candidate speedup within each process",
+  "verified_count": 0,
+  "failed_count": 5,
+  "best": null,
+  "ranked_verified": [],
+  "all_records": [
+    {
+      "candidate_index": 1,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "returncode": 1,
+      "result_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_01.json",
+      "log_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_01.log",
+      "verified": false
+    },
+    {
+      "candidate_index": 2,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 32,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "returncode": 1,
+      "result_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_02.json",
+      "log_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_02.log",
+      "verified": false
+    },
+    {
+      "candidate_index": 4,
+      "config": {
+        "block_size_m": 8,
+        "block_size_n": 64,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 8
+      },
+      "returncode": 1,
+      "result_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_04.json",
+      "log_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_04.log",
+      "verified": false
+    },
+    {
+      "candidate_index": 6,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 8,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "returncode": 1,
+      "result_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_06.json",
+      "log_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_06.log",
+      "verified": false
+    },
+    {
+      "candidate_index": 7,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 2,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "returncode": 1,
+      "result_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_07.json",
+      "log_path": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_07.log",
+      "verified": false
+    }
+  ]
+}

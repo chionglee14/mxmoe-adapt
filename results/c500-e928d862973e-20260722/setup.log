@@ -1,0 +1,76 @@
+Name: SQLAlchemy
+Version: 2.0.48
+Summary: Database Abstraction Library
+Home-page: https://www.sqlalchemy.org
+Author: Mike Bayer
+Author-email: mike_mp@zzzcomputing.com
+License: MIT
+Location: /data/mxmoe-adapt/.venv/lib/python3.10/site-packages
+Requires: greenlet, typing-extensions
+Required-by: 
+Looking in indexes: http://mirrors.aliyun.com/pypi/simple, https://mirrors.aliyun.com/pypi/simple/
+Obtaining file:///data/mxmoe-adapt
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: mxmoe-adapt
+  Building editable for mxmoe-adapt (pyproject.toml): started
+  Building editable for mxmoe-adapt (pyproject.toml): finished with status 'done'
+  Created wheel for mxmoe-adapt: filename=mxmoe_adapt-0.1.0-0.editable-py3-none-any.whl size=8529 sha256=637f86ec26e2de83d631ed20c88837002003206858df154b507019f60eecd8f0
+  Stored in directory: /tmp/pip-ephem-wheel-cache-uxc_uhen/wheels/5e/98/a7/0336500c273c135170cbbd53ea61ceefa1be7347975c2c8275
+Successfully built mxmoe-adapt
+Installing collected packages: mxmoe-adapt
+  Attempting uninstall: mxmoe-adapt
+    Found existing installation: mxmoe-adapt 0.1.0
+    Uninstalling mxmoe-adapt-0.1.0:
+      Successfully uninstalled mxmoe-adapt-0.1.0
+Successfully installed mxmoe-adapt-0.1.0
+
+[notice] A new release of pip available: 22.3.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+test_constraints_filter_estimated_smem (test_config_schema.KernelConfigTests) ... ok
+test_invalid_config_is_rejected (test_config_schema.KernelConfigTests) ... ok
+test_uppercase_mapping_and_flaggems_roundtrip (test_config_schema.KernelConfigTests) ... ok
+test_dtype_mismatch_falls_back (test_dispatch.DispatchTests) ... ok
+test_environment_mismatch_falls_back (test_dispatch.DispatchTests) ... ok
+test_selects_nearest_verified_entry (test_dispatch.DispatchTests) ... ok
+test_environment_change_requires_retune (test_drift.DriftTests) ... ok
+test_latency_threshold (test_drift.DriftTests) ... ok
+test_example_json_files_are_valid_and_unverified (test_project_integrity.ProjectIntegrityTests) ... ok
+test_pyproject_and_required_documents (test_project_integrity.ProjectIntegrityTests) ... ok
+test_geomean_excludes_failed_correctness (test_report.ReportTests) ... ok
+test_balanced_nested_route (test_route_features.RouteFeatureTests) ... ok
+test_invalid_expert_id (test_route_features.RouteFeatureTests) ... ok
+test_skew_and_padding (test_route_features.RouteFeatureTests) ... ok
+test_generated_candidates_respect_proxy_constraints (test_search_space.SearchSpaceTests) ... ok
+test_joint_objective_can_prefer_less_padding (test_tuning.TuningTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.136s
+
+OK
+FLAGGEMS_COMMIT=30bfcc0735b8ebd48bd7339ef752ec64df69663f
+Name: mxmoe-adapt
+Version: 0.1.0
+Summary: Route-aware MoE tuning and dispatch for MetaX C500 and MXMACA
+Home-page: 
+Author: 李勇志
+Author-email: 
+License: Apache-2.0
+Location: /data/mxmoe-adapt/.venv/lib/python3.10/site-packages
+Requires: 
+Required-by: 
+---
+Name: SQLAlchemy
+Version: 2.0.48
+Summary: Database Abstraction Library
+Home-page: https://www.sqlalchemy.org
+Author: Mike Bayer
+Author-email: mike_mp@zzzcomputing.com
+License: MIT
+Location: /data/mxmoe-adapt/.venv/lib/python3.10/site-packages
+Requires: greenlet, typing-extensions
+Required-by: 
+FLAGGEMS_VERSION=5.0.2
+FLAGGEMS_VENDOR=metax

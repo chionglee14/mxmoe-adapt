@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "proposed_not_measured",
+  "notes": [
+    "These are coverage shapes, not claims about a specific model architecture.",
+    "Verify real model shapes from runtime traces before publishing results."
+  ],
+  "matrix": {
+    "tokens": [1, 4, 16, 64, 128, 256, 512],
+    "experts": [8, 64, 128],
+    "hidden_size": [4096],
+    "intermediate_size": [14336],
+    "top_k": [2],
+    "dtype": ["fp16", "bf16"],
+    "route_classes": ["decode_sparse", "skewed", "prefill_dense"]
+  }
+}

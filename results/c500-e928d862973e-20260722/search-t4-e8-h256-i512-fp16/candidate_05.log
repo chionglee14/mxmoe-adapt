@@ -1,0 +1,49 @@
+No embedded MoE configs for device MetaX_C500. Will use default config.
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/triton/language/core.py", line 372, in wrapper
+    return fn(*args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/triton/language/core.py", line 1940, in dot
+    return semantic.dot(input, other, acc, input_precision, max_num_imprecise_acc, out_dtype, _builder)
+  File "/opt/conda/lib/python3.10/site-packages/triton/language/semantic.py", line 1450, in dot
+    and rhs.shape[-1].value >= 16, \
+AssertionError: All non-batch values in both first input shape ([constexpr[8], constexpr[64]]) and second input shape ([constexpr[64], constexpr[64]]) must be >= 16!
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/mxmoe-adapt/benchmarks/benchmark_fused_moe.py", line 229, in <module>
+    main()
+  File "/data/mxmoe-adapt/benchmarks/benchmark_fused_moe.py", line 164, in main
+    actual = candidate(hidden, w1, w2, topk_weights, topk_ids)
+  File "/data/mxmoe-adapt/src/mxmoe_adapt/adapters/flaggems_tuned.py", line 43, in run
+    return module.outplace_fused_experts(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1781, in outplace_fused_experts
+    return fused_experts_impl(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1629, in fused_experts_impl
+    dispatch_fused_moe_kernel(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1385, in dispatch_fused_moe_kernel
+    invoke_fused_moe_triton_kernel(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1278, in invoke_fused_moe_triton_kernel
+    fused_moe_kernel[grid](
+  File "/opt/conda/lib/python3.10/site-packages/triton/runtime/jit.py", line 345, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/triton/runtime/jit.py", line 662, in run
+    kernel = self.compile(
+  File "/opt/conda/lib/python3.10/site-packages/triton/compiler/compiler.py", line 276, in compile
+    module = src.make_ir(options, codegen_fns, context)
+  File "/opt/conda/lib/python3.10/site-packages/triton/compiler/compiler.py", line 113, in make_ir
+    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns)
+triton.compiler.errors.CompilationError: at 172:27:
+                        * a_scale[None, :]
+                    )
+                else:
+                    b_scale = tl.load(b_scale_ptrs + offs_ks * stride_bsk)
+                    accumulator += tl.dot(a, b) * a_scale[:, None] * b_scale[None, :]
+            else:
+                if use_fp8_w8a8:
+                    accumulator = tl.dot(a, b, acc=accumulator)
+                else:
+                    accumulator += tl.dot(a, b)
+        else:
+            accumulator += tl.dot(a, b)
+                           ^

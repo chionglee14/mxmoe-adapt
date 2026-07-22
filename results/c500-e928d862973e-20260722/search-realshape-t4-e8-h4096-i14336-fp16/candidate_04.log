@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/data/mxmoe-adapt/benchmarks/benchmark_fused_moe.py", line 240, in <module>
+    main()
+  File "/data/mxmoe-adapt/benchmarks/benchmark_fused_moe.py", line 170, in main
+    baseline_output = baseline(hidden, w1, w2, topk_weights, topk_ids)
+  File "/data/mxmoe-adapt/src/mxmoe_adapt/adapters/flaggems.py", line 22, in run
+    return outplace_fused_experts(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1781, in outplace_fused_experts
+    return fused_experts_impl(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1629, in fused_experts_impl
+    dispatch_fused_moe_kernel(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1385, in dispatch_fused_moe_kernel
+    invoke_fused_moe_triton_kernel(
+  File "/data/third_party/FlagGems-v5.0.2/src/flag_gems/fused/fused_moe.py", line 1278, in invoke_fused_moe_triton_kernel
+    fused_moe_kernel[grid](
+  File "/opt/conda/lib/python3.10/site-packages/triton/runtime/jit.py", line 345, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+  File "/opt/conda/lib/python3.10/site-packages/triton/runtime/jit.py", line 691, in run
+    kernel.run(grid_0, grid_1, grid_2, stream, kernel.function, kernel.packed_metadata, launch_metadata,
+  File "/opt/conda/lib/python3.10/site-packages/triton/compiler/compiler.py", line 386, in __getattribute__
+    self._init_handles()
+  File "/opt/conda/lib/python3.10/site-packages/triton/compiler/compiler.py", line 379, in _init_handles
+    raise OutOfResources(self.metadata.shared, max_shared, "shared memory")
+triton.runtime.errors.OutOfResources: out of resource: shared memory, Required: 73728, Hardware limit: 65536. Reducing block sizes or `num_stages` may help.

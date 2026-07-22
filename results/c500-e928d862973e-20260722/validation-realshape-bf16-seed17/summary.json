@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "status": "measured",
+  "shape": {
+    "tokens": 4,
+    "experts": 8,
+    "hidden_size": 4096,
+    "intermediate_size": 14336,
+    "top_k": 2,
+    "dtype": "bf16",
+    "seed": 17
+  },
+  "candidate_count": 2,
+  "ranking_metric": "paired baseline-to-candidate speedup within each process",
+  "baseline_config": {
+    "block_size_m": 16,
+    "block_size_n": 128,
+    "block_size_k": 64,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 2,
+    "align_block_size": 16
+  },
+  "upstream_default_config": {
+    "block_size_m": 16,
+    "block_size_n": 128,
+    "block_size_k": 128,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 3,
+    "align_block_size": 16
+  },
+  "verified_count": 2,
+  "filtered_count": 0,
+  "failed_count": 0,
+  "best": {
+    "candidate_index": 4,
+    "config": {
+      "block_size_m": 16,
+      "block_size_n": 32,
+      "block_size_k": 64,
+      "group_size_m": 1,
+      "num_warps": 4,
+      "num_stages": 2,
+      "align_block_size": 16
+    },
+    "baseline_config": {
+      "block_size_m": 16,
+      "block_size_n": 128,
+      "block_size_k": 64,
+      "group_size_m": 1,
+      "num_warps": 4,
+      "num_stages": 2,
+      "align_block_size": 16
+    },
+    "result_path": "results/validation-realshape-bf16-seed17/candidate_04.json",
+    "log_path": "results/validation-realshape-bf16-seed17/candidate_04.log",
+    "verified": true,
+    "status": "executed",
+    "returncode": 0,
+    "baseline_latency_us": 1335.3043422102928,
+    "candidate_latency_us": 1295.5465540289879,
+    "speedup": 1.0306880428631942,
+    "candidate_first_call_ms": 544.5360289886594,
+    "max_abs_error": 0.0078125
+  },
+  "ranked_verified": [
+    {
+      "candidate_index": 4,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 32,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "baseline_config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "result_path": "results/validation-realshape-bf16-seed17/candidate_04.json",
+      "log_path": "results/validation-realshape-bf16-seed17/candidate_04.log",
+      "verified": true,
+      "status": "executed",
+      "returncode": 0,
+      "baseline_latency_us": 1335.3043422102928,
+      "candidate_latency_us": 1295.5465540289879,
+      "speedup": 1.0306880428631942,
+      "candidate_first_call_ms": 544.5360289886594,
+      "max_abs_error": 0.0078125
+    },
+    {
+      "candidate_index": 2,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "baseline_config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "result_path": "results/validation-realshape-bf16-seed17/candidate_02.json",
+      "log_path": "results/validation-realshape-bf16-seed17/candidate_02.log",
+      "verified": true,
+      "status": "executed",
+      "returncode": 0,
+      "baseline_latency_us": 1330.1108218729496,
+      "candidate_latency_us": 1330.5009249597788,
+      "speedup": 0.9997067998379325,
+      "candidate_first_call_ms": 2.0776111632585526,
+      "max_abs_error": 0.0078125
+    }
+  ],
+  "all_records": [
+    {
+      "candidate_index": 2,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "baseline_config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "result_path": "results/validation-realshape-bf16-seed17/candidate_02.json",
+      "log_path": "results/validation-realshape-bf16-seed17/candidate_02.log",
+      "verified": true,
+      "status": "executed",
+      "returncode": 0,
+      "baseline_latency_us": 1330.1108218729496,
+      "candidate_latency_us": 1330.5009249597788,
+      "speedup": 0.9997067998379325,
+      "candidate_first_call_ms": 2.0776111632585526,
+      "max_abs_error": 0.0078125
+    },
+    {
+      "candidate_index": 4,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 32,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "baseline_config": {
+        "block_size_m": 16,
+        "block_size_n": 128,
+        "block_size_k": 64,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "align_block_size": 16
+      },
+      "result_path": "results/validation-realshape-bf16-seed17/candidate_04.json",
+      "log_path": "results/validation-realshape-bf16-seed17/candidate_04.log",
+      "verified": true,
+      "status": "executed",
+      "returncode": 0,
+      "baseline_latency_us": 1335.3043422102928,
+      "candidate_latency_us": 1295.5465540289879,
+      "speedup": 1.0306880428631942,
+      "candidate_first_call_ms": 544.5360289886594,
+      "max_abs_error": 0.0078125
+    }
+  ]
+}

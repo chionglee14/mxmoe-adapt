@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "measured",
+  "shape": {
+    "tokens": 4,
+    "experts": 8,
+    "hidden_size": 256,
+    "intermediate_size": 512,
+    "top_k": 2,
+    "dtype": "fp16"
+  },
+  "candidate_count": 1,
+  "ranking_metric": "paired baseline-to-candidate speedup within each process",
+  "verified_count": 1,
+  "failed_count": 0,
+  "best": {
+    "candidate_index": 1,
+    "config": {
+      "block_size_m": 16,
+      "block_size_n": 64,
+      "block_size_k": 128,
+      "group_size_m": 1,
+      "num_warps": 4,
+      "num_stages": 3,
+      "align_block_size": 16
+    },
+    "returncode": 0,
+    "result_path": "results/calibration-default-tile-no-warnings/candidate_01.json",
+    "log_path": "results/calibration-default-tile-no-warnings/candidate_01.log",
+    "verified": true,
+    "baseline_latency_us": 611.6576213389635,
+    "candidate_latency_us": 611.0549066215754,
+    "speedup": 1.000986351162321,
+    "candidate_first_call_ms": 1.0896241292357445,
+    "max_abs_error": 7.62939453125e-06
+  },
+  "ranked_verified": [
+    {
+      "candidate_index": 1,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 64,
+        "block_size_k": 128,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 3,
+        "align_block_size": 16
+      },
+      "returncode": 0,
+      "result_path": "results/calibration-default-tile-no-warnings/candidate_01.json",
+      "log_path": "results/calibration-default-tile-no-warnings/candidate_01.log",
+      "verified": true,
+      "baseline_latency_us": 611.6576213389635,
+      "candidate_latency_us": 611.0549066215754,
+      "speedup": 1.000986351162321,
+      "candidate_first_call_ms": 1.0896241292357445,
+      "max_abs_error": 7.62939453125e-06
+    }
+  ],
+  "all_records": [
+    {
+      "candidate_index": 1,
+      "config": {
+        "block_size_m": 16,
+        "block_size_n": 64,
+        "block_size_k": 128,
+        "group_size_m": 1,
+        "num_warps": 4,
+        "num_stages": 3,
+        "align_block_size": 16
+      },
+      "returncode": 0,
+      "result_path": "results/calibration-default-tile-no-warnings/candidate_01.json",
+      "log_path": "results/calibration-default-tile-no-warnings/candidate_01.log",
+      "verified": true,
+      "baseline_latency_us": 611.6576213389635,
+      "candidate_latency_us": 611.0549066215754,
+      "speedup": 1.000986351162321,
+      "candidate_first_call_ms": 1.0896241292357445,
+      "max_abs_error": 7.62939453125e-06
+    }
+  ]
+}

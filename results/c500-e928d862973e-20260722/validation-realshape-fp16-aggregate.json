@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "candidate_index": 4,
+  "independent_run_count": 3,
+  "median_speedup": 1.0282742775641205,
+  "min_speedup": 1.0060305018088282,
+  "max_speedup": 1.0295206117801712,
+  "all_runs_faster": true,
+  "runs": [
+    {
+      "summary_path": "results/validation-realshape-fp16-seed17/summary.json",
+      "seed": 17,
+      "speedup": 1.0295206117801712,
+      "baseline_latency_us": 1328.7141267210245,
+      "candidate_latency_us": 1290.6144000589848,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "summary_path": "results/validation-realshape-fp16-seed23/summary.json",
+      "seed": 23,
+      "speedup": 1.0282742775641205,
+      "baseline_latency_us": 1320.5535151064396,
+      "candidate_latency_us": 1284.2424865812063,
+      "max_abs_error": 0.0009765625
+    },
+    {
+      "summary_path": "results/validation-realshape-fp16-seed41/summary.json",
+      "seed": 41,
+      "speedup": 1.0060305018088282,
+      "baseline_latency_us": 1485.020937398076,
+      "candidate_latency_us": 1476.1191979050636,
+      "max_abs_error": 0.0009765625
+    }
+  ]
+}

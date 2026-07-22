@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "status": "measured",
+  "environment": {
+    "schema_version": 1,
+    "collected_at": "2026-07-22T09:44:37.574007+00:00",
+    "platform": {
+      "system": "Linux",
+      "release": "5.15.0-58-generic",
+      "machine": "x86_64",
+      "python": "3.10.10 | packaged by conda-forge | (main, Mar 24 2023, 20:08:06) [GCC 11.3.0]"
+    },
+    "packages": {
+      "torch": "2.8.0+metax3.5.3.9",
+      "triton": "3.0.0+metax3.5.3.9",
+      "flag-gems": "5.0.2",
+      "vllm": "0.17.0"
+    },
+    "torch_device": {
+      "available": true,
+      "torch_version": "2.8.0+metax3.5.3.9",
+      "cuda_api_available": true,
+      "device_count": 1,
+      "current_device": 0,
+      "device_name": "MetaX C500"
+    },
+    "mx_smi": {
+      "available": true,
+      "returncode": 0,
+      "stdout": "mx-smi  version: 2.2.12\n\n=================== MetaX System Management Interface Log ===================\nTimestamp                                         : Wed Jul 22 17:44:37 2026\n\nAttached GPUs                                     : 1\n+---------------------------------------------------------------------------------+\n| MX-SMI 2.2.12                      Kernel Mode Driver Version: 3.8.30           |\n| MACA Version: 3.5.3.20             BIOS Version: 1.33.5.0                       |\n|------------------+-----------------+---------------------+----------------------|\n| Board       Name | GPU   Persist-M | Bus-id              | GPU-Util      sGPU-M |\n| Pwr:Usage/Cap    | Temp       Perf | Memory-Usage        | GPU-State            |\n|==================+=================+=====================+======================|\n| 0     MetaX C500 | 0           Off | 0000:38:00.0        | 16%         Disabled |\n| 148W / 350W      | 38C          P9 | 4608/65536 MiB      | Available            |\n+------------------+-----------------+---------------------+----------------------+\n\n+---------------------------------------------------------------------------------+\n| Process:                                                                        |\n|  GPU                    PID         Process Name                 GPU Memory     |\n|                                                                  Usage(MiB)     |\n|=================================================================================|\n|  0                    27683         python3                      3750           |\n+---------------------------------------------------------------------------------+\n\nEnd of Log",
+      "stderr": ""
+    },
+    "source_revisions": {
+      "mxmoe_adapt": {
+        "available": true,
+        "returncode": 128,
+        "stdout": "HEAD",
+        "stderr": "fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.\nUse '--' to separate paths from revisions, like this:\n'git <command> [<revision>...] -- [<file>...]'"
+      },
+      "flag_gems": {
+        "available": true,
+        "returncode": 0,
+        "stdout": "30bfcc0735b8ebd48bd7339ef752ec64df69663f",
+        "stderr": ""
+      }
+    },
+    "environment_id": "2f654f395b9aef79"
+  },
+  "shape": {
+    "tokens": 4,
+    "experts": 8,
+    "hidden_size": 4096,
+    "intermediate_size": 14336,
+    "top_k": 2,
+    "dtype": "fp16"
+  },
+  "route_features": {
+    "tokens": 4,
+    "assignments": 8,
+    "experts": 8,
+    "top_k": 2,
+    "nonempty_experts": 5,
+    "empty_ratio": 0.375,
+    "mean_tokens_per_expert": 1.0,
+    "max_tokens_per_expert": 3,
+    "coefficient_of_variation": 1.0,
+    "normalized_entropy": 0.7185463540765221,
+    "counts": [
+      1,
+      0,
+      0,
+      1,
+      0,
+      2,
+      1,
+      3
+    ]
+  },
+  "baseline": "mxmoe_adapt.adapters.flaggems_tuned:run_baseline",
+  "baseline_config": {
+    "block_size_m": 16,
+    "block_size_n": 128,
+    "block_size_k": 64,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 2,
+    "align_block_size": 16
+  },
+  "baseline_latency_us": 1354.7770446166396,
+  "baseline_latency": {
+    "samples_us": [
+      1346.4404037222266,
+      1356.4527500420809,
+      1354.7770446166396,
+      1354.9977447837591,
+      1349.834748543799
+    ],
+    "median_us": 1354.7770446166396,
+    "p90_us": 1356.4527500420809,
+    "p99_us": 1356.4527500420809,
+    "min_us": 1346.4404037222266,
+    "max_us": 1356.4527500420809
+  },
+  "baseline_first_call_ms": 4710.377478040755,
+  "baseline_correctness_passed": true,
+  "candidate": "mxmoe_adapt.adapters.flaggems_tuned:run",
+  "candidate_config": {
+    "block_size_m": 32,
+    "block_size_n": 128,
+    "block_size_k": 64,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 2,
+    "align_block_size": 32
+  },
+  "candidate_latency_us": 1475.7555909454823,
+  "candidate_latency": {
+    "samples_us": [
+      1489.2161590978503,
+      1475.3073453903198,
+      1475.7555909454823,
+      1477.149734273553,
+      1466.8099815025926
+    ],
+    "median_us": 1475.7555909454823,
+    "p90_us": 1489.2161590978503,
+    "p99_us": 1489.2161590978503,
+    "min_us": 1466.8099815025926,
+    "max_us": 1489.2161590978503
+  },
+  "candidate_first_call_ms": 846.8387639150023,
+  "speedup": 0.9180226406925998,
+  "correctness": {
+    "passed": true,
+    "max_abs": 0.0009765625,
+    "max_rel": 244.140625,
+    "atol": 0.05,
+    "rtol": 0.05
+  },
+  "measurement": {
+    "warmup": 3,
+    "repeats": 20,
+    "rounds": 5,
+    "seed": 17,
+    "timing_method": "paired alternating rounds; synchronized batched wall-clock",
+    "library_log_level": "ERROR"
+  }
+}

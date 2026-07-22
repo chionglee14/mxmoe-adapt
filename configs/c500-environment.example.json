@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "template_not_measured",
+  "required_fields": {
+    "device": "MetaX C500",
+    "mx_smi": "captured by mxmoe-env",
+    "driver": "fill from target",
+    "mxmaca_sdk": "fill from target",
+    "mcpytorch": "fill from target",
+    "mctriton_or_flagtree": "fill from target",
+    "flaggems_commit": "fill from target",
+    "vllm_plugin_fl_commit": "fill when doing model validation"
+  }
+}

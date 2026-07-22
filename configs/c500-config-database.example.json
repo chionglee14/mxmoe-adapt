@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "device": "MetaX C500",
+  "status": "schema_example_not_measured",
+  "entries": [
+    {
+      "workload": {
+        "tokens": 4,
+        "experts": 64,
+        "hidden_size": 4096,
+        "intermediate_size": 14336,
+        "top_k": 2,
+        "dtype": "fp16",
+        "route_class": "decode_sparse"
+      },
+      "config": {
+        "BLOCK_SIZE_M": 16,
+        "BLOCK_SIZE_N": 64,
+        "BLOCK_SIZE_K": 32,
+        "GROUP_SIZE_M": 1,
+        "num_warps": 4,
+        "num_stages": 2,
+        "ALIGN_BLOCK_SIZE": 8
+      },
+      "latency_us": 0.0,
+      "verified": false,
+      "environment_id": "replace-with-c500-environment-id"
+    }
+  ]
+}

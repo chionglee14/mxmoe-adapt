@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "milestone": "M0 C500 functional recovery and first verified tuning result",
+  "status": "verified",
+  "hardware": {
+    "available": true,
+    "torch_version": "2.8.0+metax3.5.3.9",
+    "cuda_api_available": true,
+    "device_count": 1,
+    "current_device": 0,
+    "device_name": "MetaX C500"
+  },
+  "environment_id": "ea5b694e8f25df3c",
+  "packages": {
+    "torch": "2.8.0+metax3.5.3.9",
+    "triton": "3.0.0+metax3.5.3.9",
+    "flag-gems": "5.0.2",
+    "vllm": "0.17.0"
+  },
+  "source_revisions": {
+    "mxmoe_adapt": {
+      "available": true,
+      "returncode": 0,
+      "stdout": "snapshot-sha256:c9729114847f510fa9a2d5ebc571136bd14c04b8c051c1da55cc128eed8cfab2",
+      "stderr": "",
+      "source": "deterministic source snapshot"
+    },
+    "flag_gems": {
+      "available": true,
+      "returncode": 0,
+      "stdout": "30bfcc0735b8ebd48bd7339ef752ec64df69663f",
+      "stderr": ""
+    }
+  },
+  "shape": {
+    "tokens": 4,
+    "experts": 8,
+    "hidden_size": 4096,
+    "intermediate_size": 14336,
+    "top_k": 2,
+    "dtype": "fp16"
+  },
+  "upstream_default": {
+    "status": "compile_failed_out_of_shared_memory",
+    "config": {
+      "block_size_m": 16,
+      "block_size_n": 128,
+      "block_size_k": 128,
+      "group_size_m": 1,
+      "num_warps": 4,
+      "num_stages": 3,
+      "align_block_size": 16
+    },
+    "required_shared_memory_bytes": 73728,
+    "hardware_limit_bytes": 65536,
+    "evidence": "results/search-realshape-t4-e8-h4096-i14336-fp16/candidate_01.log"
+  },
+  "c500_safe_baseline_config": {
+    "block_size_m": 16,
+    "block_size_n": 128,
+    "block_size_k": 64,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 2,
+    "align_block_size": 16
+  },
+  "best_verified_config": {
+    "block_size_m": 16,
+    "block_size_n": 32,
+    "block_size_k": 64,
+    "group_size_m": 1,
+    "num_warps": 4,
+    "num_stages": 2,
+    "align_block_size": 16
+  },
+  "fp16_validation": {
+    "schema_version": 1,
+    "status": "verified",
+    "candidate_index": 4,
+    "independent_run_count": 3,
+    "median_speedup": 1.0282742775641205,
+    "min_speedup": 1.0060305018088282,
+    "max_speedup": 1.0295206117801712,
+    "all_runs_faster": true,
+    "runs": [
+      {
+        "summary_path": "results/validation-realshape-fp16-seed17/summary.json",
+        "seed": 17,
+        "speedup": 1.0295206117801712,
+        "baseline_latency_us": 1328.7141267210245,
+        "candidate_latency_us": 1290.6144000589848,
+        "max_abs_error": 0.0009765625
+      },
+      {
+        "summary_path": "results/validation-realshape-fp16-seed23/summary.json",
+        "seed": 23,
+        "speedup": 1.0282742775641205,
+        "baseline_latency_us": 1320.5535151064396,
+        "candidate_latency_us": 1284.2424865812063,
+        "max_abs_error": 0.0009765625
+      },
+      {
+        "summary_path": "results/validation-realshape-fp16-seed41/summary.json",
+        "seed": 41,
+        "speedup": 1.0060305018088282,
+        "baseline_latency_us": 1485.020937398076,
+        "candidate_latency_us": 1476.1191979050636,
+        "max_abs_error": 0.0009765625
+      }
+    ]
+  },
+  "bf16_validation": {
+    "schema_version": 1,
+    "status": "verified",
+    "candidate_index": 4,
+    "independent_run_count": 3,
+    "median_speedup": 1.0294699752870535,
+    "min_speedup": 1.0054683824972293,
+    "max_speedup": 1.0306880428631942,
+    "all_runs_faster": true,
+    "runs": [
+      {
+        "summary_path": "results/validation-realshape-bf16-seed17/summary.json",
+        "seed": 17,
+        "speedup": 1.0306880428631942,
+        "baseline_latency_us": 1335.3043422102928,
+        "candidate_latency_us": 1295.5465540289879,
+        "max_abs_error": 0.0078125
+      },
+      {
+        "summary_path": "results/validation-realshape-bf16-seed23/summary.json",
+        "seed": 23,
+        "speedup": 1.0294699752870535,
+        "baseline_latency_us": 1324.3745360523462,
+        "candidate_latency_us": 1286.4625174552202,
+        "max_abs_error": 0.0078125
+      },
+      {
+        "summary_path": "results/validation-realshape-bf16-seed41/summary.json",
+        "seed": 41,
+        "speedup": 1.0054683824972293,
+        "baseline_latency_us": 1494.7298727929592,
+        "candidate_latency_us": 1486.6005722433329,
+        "max_abs_error": 0.0078125
+      }
+    ]
+  },
+  "limitations": [
+    "One synthetic decode shape has been independently verified so far.",
+    "Expert count is 8 and routing uses seeded synthetic Top-K assignments.",
+    "Route-class coverage, prefill shapes, E=64/128, and model-layer integration remain pending.",
+    "M0 uses explicit FlagGems configuration injection; an upstream MetaX config table is pending."
+  ]
+}

@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+.private/
+dist/
+build/
+results/*
+!results/.gitkeep
+!results/c500-e928d862973e-20260722/
+!results/c500-e928d862973e-20260722/**
