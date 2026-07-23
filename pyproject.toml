@@ -24,7 +24,7 @@ Issues = "https://github.com/chionglee14/mxmoe-adapt/issues"
 
 [project.optional-dependencies]
 c500 = ["torch", "triton", "flag-gems"]
-dev = ["pytest>=7", "ruff>=0.6"]
+dev = ["pytest>=7", "ruff>=0.6", "tomli>=2; python_version < '3.11'"]
 
 [project.scripts]
 mxmoe-env = "mxmoe_adapt.environment:main"
